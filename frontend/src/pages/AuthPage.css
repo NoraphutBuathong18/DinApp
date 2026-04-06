@@ -1,0 +1,139 @@
+.auth {
+    position: relative;
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.auth__bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+.auth__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+.auth__card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 400px;
+    padding: 40px 32px;
+    border-radius: var(--radius-smooth);
+    text-align: center;
+    margin: 24px;
+}
+
+.auth__logo {
+    width: 60px;
+    height: auto;
+    margin: 0 auto 16px;
+    border-radius: var(--radius-smooth);
+    overflow: hidden;
+}
+
+.auth__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-primary-900);
+    margin: 0 0 24px;
+}
+
+.auth__form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.auth__field {
+    text-align: left;
+}
+
+.auth__field label {
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    margin-bottom: 6px;
+}
+
+.auth__field input {
+    width: 100%;
+    padding: 10px 14px;
+    border: 1.5px solid var(--color-border);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+    background: rgba(255, 255, 255, 0.8);
+    color: var(--color-text);
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+    outline: none;
+}
+
+.auth__field input:focus {
+    border-color: var(--color-primary-500);
+    box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.15);
+}
+
+.auth__submit {
+    width: 100%;
+    margin-top: 8px;
+    padding: 12px;
+    font-size: 1rem;
+    justify-content: center;
+}
+
+.auth__switch {
+    margin-top: 20px;
+    font-size: 0.85rem;
+    color: var(--color-text-muted);
+}
+
+.auth__switch a {
+    color: var(--color-primary-600);
+    font-weight: 600;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .auth__card {
+        max-width: 360px;
+        padding: 28px 20px;
+        margin: 16px;
+    }
+
+    .auth__logo {
+        width: 48px;
+    }
+
+    .auth__title {
+        font-size: 1.3rem;
+        margin-bottom: 18px;
+    }
+
+    .auth__field input {
+        padding: 9px 12px;
+        font-size: 0.85rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .auth__card {
+        padding: 24px 16px;
+        margin: 12px;
+        border-radius: var(--radius-lg);
+    }
+}

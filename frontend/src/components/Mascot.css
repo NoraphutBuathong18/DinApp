@@ -1,0 +1,130 @@
+/* ===== Mascot Container ===== */
+.mascot {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    user-select: none;
+}
+
+/* Idle float animation */
+.mascot__svg {
+    width: 70px;
+    height: auto;
+    animation: mascot-float 3s ease-in-out infinite;
+    filter: drop-shadow(0 8px 16px rgba(0,0,0,0.15));
+    transition: transform 0.3s ease;
+}
+
+.mascot:hover .mascot__svg {
+    transform: scale(1.04);
+}
+
+/* ===== Float ===== */
+@keyframes mascot-float {
+    0%, 100% { transform: translateY(0px); }
+    50%       { transform: translateY(-8px); }
+}
+
+/* ===== Pupils default ===== */
+.mascot__pupil-left,
+.mascot__pupil-right {
+    transition: cy 0.3s ease, cx 0.3s ease;
+}
+
+/* ===== Blink ===== */
+.mascot__blink-left,
+.mascot__blink-right {
+    animation: mascot-blink 5s ease-in-out infinite;
+}
+
+.mascot__blink-right {
+    animation-delay: 0.06s;
+}
+
+@keyframes mascot-blink {
+    0%, 90%, 100% { ry: 0; }
+    93%, 97%      { ry: 12px; }
+}
+
+/* ===== Mouth (idle = closed, talking = open) ===== */
+.mascot__mouth-closed {
+    opacity: 1;
+    transition: opacity 0.15s ease;
+}
+
+.mascot__mouth-open {
+    opacity: 0;
+    transition: opacity 0.15s ease;
+}
+
+/* When talking, swap mouth */
+.mascot--talking .mascot__mouth-closed {
+    opacity: 0;
+}
+
+.mascot--talking .mascot__mouth-open {
+    opacity: 1;
+    animation: mascot-talk 0.4s ease-in-out infinite alternate;
+}
+
+@keyframes mascot-talk {
+    0%   { ry: 4px; }
+    100% { ry: 9px; }
+}
+
+/* Tail wiggles wider when talking */
+.mascot--talking .mascot__svg {
+    animation: mascot-float 3s ease-in-out infinite, mascot-wiggle 0.6s ease-in-out infinite;
+}
+
+@keyframes mascot-wiggle {
+    0%, 100% { transform: rotate(0deg); }
+    25%       { transform: rotate(-2.5deg); }
+    75%       { transform: rotate(2.5deg); }
+}
+
+/* ===== Speech bubble (3-dot typing) ===== */
+.mascot__bubble {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: white;
+    border-radius: 12px;
+    padding: 6px 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    position: relative;
+    animation: mascot-bubble-in 0.2s ease;
+}
+
+.mascot__bubble::before {
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 0 6px 8px 6px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
+.mascot__bubble span {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #5d9e6a;
+    animation: mascot-dot 1s ease-in-out infinite;
+}
+
+.mascot__bubble span:nth-child(2) { animation-delay: 0.15s; }
+.mascot__bubble span:nth-child(3) { animation-delay: 0.3s; }
+
+@keyframes mascot-dot {
+    0%, 80%, 100% { transform: scale(0.6); opacity: 0.4; }
+    40%           { transform: scale(1);   opacity: 1; }
+}
+
+@keyframes mascot-bubble-in {
+    from { opacity: 0; transform: scale(0.8) translateY(4px); }
+    to   { opacity: 1; transform: scale(1)   translateY(0); }
+}

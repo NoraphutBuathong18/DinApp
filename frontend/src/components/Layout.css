@@ -1,0 +1,29 @@
+.layout {
+    min-height: 100vh;
+}
+
+.layout__main {
+    padding-top: var(--navbar-height);
+    min-height: 100vh;
+    transition: padding-left var(--transition-base);
+}
+
+.layout__main--with-sidebar {
+    padding-left: var(--sidebar-width);
+}
+
+.layout__main--sidebar-open {
+    padding-left: var(--sidebar-expanded);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .layout__main {
+        padding-top: 54px;
+        /* match reduced navbar */
+    }
+
+    .layout__main--with-sidebar {
+        padding-left: 0;
+    }
+}

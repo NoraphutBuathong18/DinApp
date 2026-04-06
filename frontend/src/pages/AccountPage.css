@@ -1,0 +1,163 @@
+.account {
+    position: relative;
+    height: calc(100vh - var(--navbar-height));
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.account__bg-wrapper {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+}
+
+.account__bg {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: blur(2px) brightness(0.7);
+}
+
+.account__bg-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.2);
+}
+
+.account__card {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    max-width: 380px;
+    padding: 36px 28px;
+    border-radius: var(--radius-xl);
+    text-align: center;
+    margin: 24px;
+}
+
+.account__title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    font-style: italic;
+    color: var(--color-primary-900);
+    margin: 0 0 24px;
+}
+
+.account__avatar-wrapper {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 24px;
+}
+
+.account__avatar {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--color-primary-300);
+    box-shadow: var(--shadow-lg);
+}
+
+.account__avatar-edit {
+    position: absolute;
+    bottom: 4px;
+    right: 4px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    background: var(--color-cream);
+    border: 2px solid white;
+    font-size: 0.85rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-sm);
+}
+
+.account__info {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.account__field {
+    padding: 12px 18px;
+    background: rgba(255, 255, 255, 0.6);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    text-align: left;
+    font-size: 0.88rem;
+}
+
+.account__label {
+    font-weight: 600;
+    color: var(--color-primary-800);
+}
+
+.account__value {
+    margin-left: 8px;
+    color: var(--color-text);
+}
+
+.account__delete {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1.5px solid #ef4444;
+    color: #ef4444;
+    font-size: 0.88rem;
+    font-weight: 600;
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    margin-bottom: 12px;
+    transition: all var(--transition-fast);
+}
+
+.account__delete:hover {
+    background: #fef2f2;
+}
+
+.account__logout {
+    width: 100%;
+    justify-content: center;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    .account__card {
+        max-width: 340px;
+        padding: 28px 20px;
+        margin: 16px;
+    }
+
+    .account__title {
+        font-size: 1.3rem;
+    }
+
+    .account__avatar {
+        width: 100px;
+        height: 100px;
+    }
+
+    .account__field {
+        padding: 10px 14px;
+        font-size: 0.84rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .account__card {
+        padding: 22px 16px;
+        margin: 12px;
+    }
+
+    .account__avatar {
+        width: 80px;
+        height: 80px;
+    }
+}
