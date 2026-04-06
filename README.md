@@ -16,17 +16,22 @@ You will need **two terminal windows** (one for the backend, one for the fronten
 ### Step 1: Start the Backend (API & AI Models)
 Open your first terminal and run:
 
-```bash
-# 1. Navigate to the backend directory
+```powershell
+# 1. Activate the Virtual Environment (Important!)
+# Make sure you are in the root 'Practical' folder, then run:
+.\.venv\Scripts\activate
+# For Mac/Linux use: source .venv/bin/activate
+
+# 2. Navigate to the backend directory
 cd backend
 
-# 2. Install dependencies (if you haven't already and are setting this up for the first time)
+# 3. Install dependencies (First time setup only)
 pip install -r requirements.txt
 
-# 3. Start the FastAPI server
-python -m uvicorn main:app --reload --port 8000
+# 4. Start the FastAPI server
+uvicorn main:app --reload
 ```
-*The backend should now be running at `http://localhost:8000`*
+*The backend should now be running at `http://127.0.0.1:8000`*
 
 *(Note: Ensure you have populated your `.env` file in the `backend/` directory with `GROQ_API_KEY` and `OPENROUTER_API_KEY` before running).*
 
