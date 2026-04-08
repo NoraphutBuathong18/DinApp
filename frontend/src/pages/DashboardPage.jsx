@@ -214,7 +214,7 @@ export default function DashboardPage() {
                                     
                                     {/* Top: Custom Dashboard */}
                                     <div style={{ width: '100%' }}>
-                                        <CustomDashboard data={analysisResult} disableAnimation={true} />
+                                        <CustomDashboard data={analysisResult} disableAnimation={true} hideDateFilter={true} />
                                     </div>
 
                                     {/* Bottom: Analysis Stats */}

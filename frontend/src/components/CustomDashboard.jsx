@@ -6,7 +6,7 @@ import {
 import { Droplet, Thermometer, Database, TestTube, Calendar } from 'lucide-react';
 import './CustomDashboard.css';
 
-const CustomDashboard = ({ data, disableAnimation = false }) => {
+const CustomDashboard = ({ data, disableAnimation = false, hideDateFilter = false }) => {
     // 1. Get Selected Year State
     const [selectedYear, setSelectedYear] = useState('All');
 
@@ -152,7 +152,7 @@ const CustomDashboard = ({ data, disableAnimation = false }) => {
         <div className={`custom-dashboard ${disableAnimation ? '' : 'animate-fade-in-up'}`} style={{ animationDelay: disableAnimation ? "0s" : "0.2s" }}>
             
             {/* Year Filter Header */}
-            {availableYears.length > 0 && (
+            {availableYears.length > 0 && !hideDateFilter && (
                 <div style={{ display: 'flex', alignItems: 'center', marginBottom: '20px', gap: '10px', background: 'white', padding: '15px 20px', borderRadius: '12px', boxShadow: '0 1px 3px rgba(0,0,0,0.05)' }}>
                     <Calendar size={20} color="#64748b" />
                     <span style={{ fontWeight: 600, color: '#334155', fontSize: '1rem', whiteSpace: 'nowrap' }}>เทียบข้อมูลความเปลี่ยนแปลง: </span>
