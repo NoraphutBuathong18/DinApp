@@ -87,6 +87,7 @@ def verify_otp(data: OTPVerifyPayload, db: Session = Depends(get_db)):
         "user": {
             "email": user.email, 
             "id": user.id,
+            "is_active": user.is_active,
             "profile_picture": user.profile_picture
         }
     }
